@@ -1,0 +1,26 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    padding: 10px 0;
+    border-color: crimson;
+    border-width: 1px;
+    border-style: dashed;
+}
+
+.login-card-cell {
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+}

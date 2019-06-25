@@ -5,25 +5,21 @@ const commonProps = {
     },
 };
 
-const getProps = {
-    method: 'GET',
-    ...commonProps,
-};
-
-const postProps = {
-    method: 'POST',
-    ...commonProps,
-};
-
 export const getRequest = (url) => {
-    return fetch(url, getProps).then(
-            response => response.json()
+    const init = {
+        method: 'GET',
+        ...commonProps,
+    };
+
+    return fetch(url, init).then(
+        response => response ? response.json() : {}
         );
 };
 
 export const postRequest = (url, data) => {
-    let init = {
-        ...postProps,
+    const init = {
+        ...commonProps,
+        method: 'POST',
         body: JSON.stringify(data),
     };
 
@@ -31,4 +27,3 @@ export const postRequest = (url, data) => {
         response => response ? response.json() : {}
     );
 };
-

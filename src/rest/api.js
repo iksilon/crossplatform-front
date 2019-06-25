@@ -5,5 +5,6 @@ export const api = {
         games: `${root}/overview/games`,
         platforms: `${root}/overview/platforms`,
         add: `${root}/overview/add`,
+        remove: `${root}/overview/remove`,
     },
 };

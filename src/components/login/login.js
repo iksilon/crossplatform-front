@@ -28,8 +28,21 @@ export const loginActions = {
 
 const LoginComponent = ({}) => {
     const login = () => {
+        appActions.errors.setErrorForField("login-username", undefined);
+        appActions.errors.setErrorForField("login-password", undefined);
+
         const username = document.getElementById("login-username").value;
-        loginActions.login(username, "");
+        const password = document.getElementById("login-password").value;
+        if(!username) {
+            appActions.errors.setErrorForField("login-username", "Please enter a username");
+        }
+        if(!password) {
+            appActions.errors.setErrorForField("login-password", "Please enter a password");
+        }
+
+        if(username && password) {
+            loginActions.login(username, password);
+        }
     };
 
     return (
@@ -44,6 +57,7 @@ const LoginComponent = ({}) => {
                 <div className="login-card-cell">
                     <div>Password</div>
                     <input id="login-password" type="password"/>
+                    <div className="error">{appActions.errors.getErrorForField("login-password")}</div>
                 </div>
                 <div className="login-card-cell">
                     <button type="button" onClick={login}>Log in</button>
